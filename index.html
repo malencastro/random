@@ -1,1 +1,29 @@
-<h1>o meu teste</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random String Selector</title>
+</head>
+<body>
+    <h1>Click to Get a Random String</h1>
+    <button onclick="selectRandomString()">Get Random String</button>
+    <p id="result"></p>
+
+    <script>
+        // Define the two strings to choose from
+        const stringA = "Option A";
+        const stringB = "Option B";
+
+        // Function to randomly select one string
+        function selectRandomString() {
+            // Generate a random index (0 or 1)
+            const randomIndex = Math.floor(Math.random() * 2);
+
+            // Select and display the result
+            const result = randomIndex === 0 ? stringA : stringB;
+            document.getElementById("result").textContent = "Selected: " + result;
+        }
+    </script>
+</body>
+</html>
