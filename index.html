@@ -42,6 +42,10 @@
         button:hover {
             background-color: #45a049;
         }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
         p {
             font-size: 18px;
             font-weight: bold;
@@ -53,7 +57,7 @@
 <body>
     <div class="container">
         <h1>Seletor Aleatório de Texto</h1>
-        <button onclick="selectRandomString()">Obter Texto Aleatório</button>
+        <button id="randomButton" onclick="selectRandomString()">Obter Texto Aleatório</button>
         <p id="result">Clique no botão para ver o resultado.</p>
     </div>
 
@@ -61,6 +65,12 @@
         // Definir as duas opções para escolher
         const stringA = "Opção A";
         const stringB = "Opção B";
+
+        // Verificar se o botão já foi desabilitado previamente
+        if (localStorage.getItem('buttonClicked') === 'true') {
+            document.getElementById("randomButton").disabled = true;
+            document.getElementById("result").textContent = "Você já obteve o resultado!";
+        }
 
         // Função para selecionar aleatoriamente uma opção
         function selectRandomString() {
@@ -70,6 +80,12 @@
             // Selecionar e mostrar o resultado
             const result = randomIndex === 0 ? stringA : stringB;
             document.getElementById("result").textContent = "Selecionado: " + result;
+
+            // Desabilitar o botão após o clique
+            document.getElementById("randomButton").disabled = true;
+
+            // Salvar o estado de que o botão foi clicado no localStorage
+            localStorage.setItem('buttonClicked', 'true');
         }
     </script>
 </body>
