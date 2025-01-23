@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random String Selector</title>
+    <title>Seletor Aleatório de Texto</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -52,24 +52,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Random String Selector</h1>
-        <button onclick="selectRandomString()">Get Random String</button>
-        <p id="result">Click the button to see a result.</p>
+        <h1>Seletor Aleatório de Texto</h1>
+        <button onclick="selectRandomString()">Obter Texto Aleatório</button>
+        <p id="result">Clique no botão para ver o resultado.</p>
     </div>
 
     <script>
-        // Define the two strings to choose from
-        const stringA = "Option A";
-        const stringB = "Option B";
+        // Definir as duas opções para escolher
+        const stringA = "Opção A";
+        const stringB = "Opção B";
 
-        // Function to randomly select one string
+        // Função para selecionar aleatoriamente uma opção
         function selectRandomString() {
-            // Generate a random index (0 or 1)
+            // Gerar um índice aleatório (0 ou 1)
             const randomIndex = Math.floor(Math.random() * 2);
 
-            // Select and display the result
+            // Selecionar e mostrar o resultado
             const result = randomIndex === 0 ? stringA : stringB;
-            document.getElementById("result").textContent = "Selected: " + result;
+            document.getElementById("result").textContent = "Selecionado: " + result;
         }
     </script>
 </body>
